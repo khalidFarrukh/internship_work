@@ -50,17 +50,17 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "contain",
   },
-  brand_logo: {
+  go_back_icon: {
     position: "absolute",
-    top: "-35%",
-    width: "40%",
+    top: "-40%",
+    left: "7%",
+    width: "6%",
     height: "100%",
-
     resizeMode: "contain",
   },
   title: {
     position: "absolute",
-    top: "-23%",
+    top: "-35%",
     left: "8%",
     width: "20%",
     height: "100%",
@@ -68,43 +68,33 @@ const styles = StyleSheet.create({
   },
   user_box: {
     position: "absolute",
-    top: "-15%",
+    top: "-28%",
     width: "85%",
     height: "100%",
     resizeMode: "contain",
   },
-  pass_box: {
+  email_box: {
     position: "absolute",
-    top: "-5%",
+    top: "-19%",
     width: "85%",
     height: "100%",
     resizeMode: "contain",
   },
-  sliding_button: {
+  pass1_box: {
     position: "absolute",
-    top: "2%",
-    left: "8%",
-    width: "8%",
+    top: "-10%",
+    width: "85%",
     height: "100%",
     resizeMode: "contain",
   },
-  rmmbr_me: {
+  pass2_box: {
     position: "absolute",
-    top: "2%",
-    left: "18%",
-    width: "25%",
+    top: "-1%",
+    width: "85%",
     height: "100%",
     resizeMode: "contain",
   },
-  frgt_pswd: {
-    position: "absolute",
-    top: "2%",
-    right: "8%",
-    width: "30%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  sign_in_button: {
+  sign_up_button: {
     position: "absolute",
     top: "11%",
     width: "90%",
@@ -132,7 +122,7 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "contain",
   },
-  not_signed_up: {
+  have_sign_in: {
     position: "absolute",
     top: "43%",
     left:"8%",
@@ -142,7 +132,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Sign_in = () => {
+const Sign_up = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
@@ -151,21 +141,20 @@ const Sign_in = () => {
         <Image style={styles.bg_dr} source={require("./images/b_d_r.png")} />
         <Image style={styles.bg_tl} source={require("./images/b_t_l.png")} />
         <Image style={styles.bg_dl} source={require("./images/b_d_l.png")} />
-        <Image style={styles.brand_logo} source={require("./images/eventhub_logo.png")} />
-        <Image style={styles.title} source={require("./images/sign_in.png")} />
+        <Image style={styles.go_back_icon} source={require("./images/back.png")} />
+        <Image style={styles.title} source={require("./images/sign_up.png")} />
         <Image style={styles.user_box} source={require("./images/username_box.png")} />
-        <Image style={styles.pass_box} source={require("./images/password_box.png")} />
-        <Image style={styles.sliding_button} source={require("./images/button_off.png")} />
-        <Image style={styles.rmmbr_me} source={require("./images/remember_me.png")} />
-        <Image style={styles.frgt_pswd} source={require("./images/forgot_password.png")} />
-        <Image style={styles.sign_in_button} source={require("./images/button_sign_in.png")} />
+        <Image style={styles.email_box} source={require("./images/email_box.png")} />
+        <Image style={styles.pass1_box} source={require("./images/password_box.png")} />
+        <Image style={styles.pass2_box} source={require("./images/password_box.png")} />
+        <Image style={styles.sign_up_button} source={require("./images/button_sign_up.png")} />
         <Image style={styles.or} source={require("./images/or.png")} />
         <Image style={styles.login_with_google} source={require("./images/login_with_google.png")} />
         <Image style={styles.login_with_facebook} source={require("./images/login_with_facebook.png")} />
-        <Image style={styles.not_signed_up} source={require("./images/not_signed_up.png")} />
+        <Image style={styles.have_sign_in} source={require("./images/have_sign_in.png")} />
       </View>
     </SafeAreaView>
   );
 };
 
-export default Sign_in;
+export default Sign_up;
