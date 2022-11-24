@@ -18,14 +18,18 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
   },
+  view_row: {
+    alignSelf: "center",
+  },
   row: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: "center",
+
   },
   column: {
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: "center",
     width: '50%',
   },
   bg_tr: {
@@ -126,13 +130,14 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   resend_code_in: {
-    width: "70%",
-    left:"30%",
+    width: "60%",
+    left: "37%",
     resizeMode: "contain",
   },
-  text_counter:{
-    fontSize:20,
-    left:"-18%",    
+  text_counter: {
+    fontSize: 17,
+    right: "20%",
+    color: "blue",
   },
   numpad_background: {
     position: "absolute",
@@ -209,21 +214,15 @@ const Verification = () => {
         <Image style={styles.box_input_field_3} source={require("./images/empty_field.png")} />
         <Image style={styles.box_input_field_4} source={require("./images/empty_field.png")} />
         <Image style={styles.continue_button} source={require("./images/button_continue.png")} />
-        {/* <View style={styles.view_resend_code_in}>
-          <Image style={styles.resend_code_in} source={require("./images/resend_code_in.png")} />
-          <Text>
-            : 00
-          </Text>
-        </View> */}
         <View style={styles.row}>
           <View style={styles.column}>
             <Image style={styles.resend_code_in} source={require("./images/resend_code_in.png")} />
           </View>
           <View style={styles.column}>
-            <Text style= {styles.text_counter}>Sample</Text>
+            <Text style={styles.text_counter}>30</Text>
           </View>
         </View>
-        {/* <View style={styles.numpad_background} />
+        <View style={styles.numpad_background} />
         <Image style={[styles.key_button, styles.key_1]} source={require("./images/1.png")} />
         <Image style={[styles.key_button, styles.key_2]} source={require("./images/2.png")} />
         <Image style={[styles.key_button, styles.key_3]} source={require("./images/3.png")} />
@@ -233,7 +232,8 @@ const Verification = () => {
         <Image style={[styles.key_button, styles.key_7]} source={require("./images/7.png")} />
         <Image style={[styles.key_button, styles.key_8]} source={require("./images/8.png")} />
         <Image style={[styles.key_button, styles.key_9]} source={require("./images/9.png")} />
-        <Image style={[styles.key_button, styles.key_0]} source={require("./images/0.png")} /> */}
+        <Image style={[styles.key_button, styles.key_0]} source={require("./images/0.png")} />
+        <Image style={[styles.delete_button]} source={require("./images/Delete.png")} />
       </View>
     </SafeAreaView >
   );
