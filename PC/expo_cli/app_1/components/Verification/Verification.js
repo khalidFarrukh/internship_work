@@ -203,7 +203,6 @@ const styles = StyleSheet.create({
 });
 
 const Verification = () => {
-  const [number, onChangeNumber] = React.useState(null);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
