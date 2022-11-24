@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    top: "8%",
     alignItems: "center",
 
   },
@@ -191,6 +190,14 @@ const styles = StyleSheet.create({
     bottom: "-45%",
     right: "35%",
   },
+  delete_button: {
+    position: "absolute",
+    width: "10%",
+    height: "100%",
+    bottom: "-45%",
+    right: "12%",
+    resizeMode: "contain",
+  }
 
 
 });
