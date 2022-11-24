@@ -203,6 +203,7 @@ const styles = StyleSheet.create({
 });
 
 const Verification = () => {
+  const [number, onChangeNumber] = React.useState(null);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
@@ -238,10 +239,7 @@ const Verification = () => {
         <Image style={[styles.key_button, styles.key_8]} source={require("./images/8.png")} />
         <Image style={[styles.key_button, styles.key_9]} source={require("./images/9.png")} />
         <Image style={[styles.key_button, styles.key_0]} source={require("./images/0.png")} />
-        <Button>
         <Image style={[styles.delete_button]} source={require("./images/Delete.png")} />
-
-        </Button>
       </View>
     </SafeAreaView >
   );

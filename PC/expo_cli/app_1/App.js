@@ -17,7 +17,8 @@ import Onboarding_3 from "./components/Onboarding_3/Onboarding_3";
 import Sign_in from "./components/Sign_in/Sign_in";
 import Sign_up from "./components/Sign_up/Sign_up";
 import Verification from "./components/Verification/Verification";
+import Reset_password from "./components/Reset_password/Reset_password";
 
 export default function App() {
-  return <Verification />;
+  return <Reset_password />;
 }
