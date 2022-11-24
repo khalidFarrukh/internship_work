@@ -18,12 +18,10 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
   },
-  view_row: {
-    alignSelf: "center",
-  },
   row: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    top: "8%",
     alignItems: "center",
 
   },
@@ -126,7 +124,7 @@ const styles = StyleSheet.create({
     top: "-5.5%",
     width: "90%",
     height: "100%",
-    alignSelf: 'center',
+    alignSelf: "center",
     resizeMode: "contain",
   },
   resend_code_in: {
