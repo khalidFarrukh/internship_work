@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
 });
 
 const Reset_password = () => {
-  const [text, onChangeText] = React.useState("Useless Text");
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
