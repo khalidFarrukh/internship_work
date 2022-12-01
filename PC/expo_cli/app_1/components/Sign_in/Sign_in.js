@@ -10,6 +10,33 @@ import {
   View,
   Button,
 } from "react-native";
+import Svg, { Circle } from 'react-native-svg';
+
+const Sign_in = () => {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <Image style={styles.bg_tr} source={require("./images/b_t_r.png")} />
+        <Image style={styles.bg_dr} source={require("./images/b_d_r.png")} />
+        <Image style={styles.bg_tl} source={require("./images/b_t_l.png")} />
+        <Image style={styles.bg_dl} source={require("./images/b_d_l.png")} />
+        <Image style={styles.brand_logo} source={require("./images/eventhub_logo.png")} />
+        <Image style={styles.title} source={require("./images/sign_in.png")} />
+        <Image style={styles.user_box} source={require("./images/username_box.png")} />
+        <Image style={styles.pass_box} source={require("./images/password_box.png")} />
+        <Image style={styles.sliding_button} source={require("./images/button_off.png")} />
+        <Image style={styles.rmmbr_me} source={require("./images/remember_me.png")} />
+        <Image style={styles.frgt_pswd} source={require("./images/forgot_password.png")} />
+        <Image style={styles.sign_in_button} source={require("./images/button_sign_in.png")} />
+        <Image style={styles.or} source={require("./images/or.png")} />
+        <Image style={styles.login_with_google} source={require("./images/login_with_google.png")} />
+        <Image style={styles.login_with_facebook} source={require("./images/login_with_facebook.png")} />
+        <Image style={styles.not_signed_up} source={require("./images/not_signed_up.png")} />
+      </View >
+    </SafeAreaView >
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -17,6 +44,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  row: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: "center",
+
+  },
+  column: {
+    flexDirection: 'column',
+    alignItems: "center",
+    width: '50%',
   },
   bg_tr: {
     position: "absolute",
@@ -135,37 +173,11 @@ const styles = StyleSheet.create({
   not_signed_up: {
     position: "absolute",
     top: "43%",
-    left:"8%",
+    left: "8%",
     width: "80%",
     height: "100%",
     resizeMode: "contain",
   }
 });
-
-const Sign_in = () => {
-  return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <Image style={styles.bg_tr} source={require("./images/b_t_r.png")} />
-        <Image style={styles.bg_dr} source={require("./images/b_d_r.png")} />
-        <Image style={styles.bg_tl} source={require("./images/b_t_l.png")} />
-        <Image style={styles.bg_dl} source={require("./images/b_d_l.png")} />
-        <Image style={styles.brand_logo} source={require("./images/eventhub_logo.png")} />
-        <Image style={styles.title} source={require("./images/sign_in.png")} />
-        <Image style={styles.user_box} source={require("./images/username_box.png")} />
-        <Image style={styles.pass_box} source={require("./images/password_box.png")} />
-        <Image style={styles.sliding_button} source={require("./images/button_off.png")} />
-        <Image style={styles.rmmbr_me} source={require("./images/remember_me.png")} />
-        <Image style={styles.frgt_pswd} source={require("./images/forgot_password.png")} />
-        <Image style={styles.sign_in_button} source={require("./images/button_sign_in.png")} />
-        <Image style={styles.or} source={require("./images/or.png")} />
-        <Image style={styles.login_with_google} source={require("./images/login_with_google.png")} />
-        <Image style={styles.login_with_facebook} source={require("./images/login_with_facebook.png")} />
-        <Image style={styles.not_signed_up} source={require("./images/not_signed_up.png")} />
-      </View>
-    </SafeAreaView>
-  );
-};
 
 export default Sign_in;

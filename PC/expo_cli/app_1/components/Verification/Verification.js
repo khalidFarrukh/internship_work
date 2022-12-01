@@ -136,70 +136,6 @@ const styles = StyleSheet.create({
     right: "20%",
     color: "blue",
   },
-  numpad_background: {
-    position: "absolute",
-    backgroundColor: "#D2D5DB",
-    bottom: "-70%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  key_button: {
-    position: "absolute",
-    width: "30%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  key_1: {
-    bottom: "-24%",
-    left: "2.5%",
-  },
-  key_2: {
-    bottom: "-24%",
-    left: "35%",
-  },
-  key_3: {
-    bottom: "-24%",
-    right: "2.5%",
-  },
-  key_4: {
-    bottom: "-31%",
-    left: "2.5%",
-  },
-  key_5: {
-    bottom: "-31%",
-    left: "35%",
-  },
-  key_6: {
-    bottom: "-31%",
-    right: "2.5%",
-  },
-  key_7: {
-    bottom: "-38%",
-    left: "2.5%",
-  },
-  key_8: {
-    bottom: "-38%",
-    left: "35%",
-  },
-  key_9: {
-    bottom: "-38%",
-    right: "2.5%",
-  },
-  key_0: {
-    bottom: "-45%",
-    right: "35%",
-  },
-  delete_button: {
-    position: "absolute",
-    width: "10%",
-    height: "100%",
-    bottom: "-45%",
-    right: "12%",
-    resizeMode: "contain",
-  }
-
-
 });
 
 const Verification = () => {
@@ -227,18 +163,6 @@ const Verification = () => {
             <Text style={styles.text_counter}>30</Text>
           </View>
         </View>
-        <View style={styles.numpad_background} />
-        <Image style={[styles.key_button, styles.key_1]} source={require("./images/1.png")} />
-        <Image style={[styles.key_button, styles.key_2]} source={require("./images/2.png")} />
-        <Image style={[styles.key_button, styles.key_3]} source={require("./images/3.png")} />
-        <Image style={[styles.key_button, styles.key_4]} source={require("./images/4.png")} />
-        <Image style={[styles.key_button, styles.key_5]} source={require("./images/5.png")} />
-        <Image style={[styles.key_button, styles.key_6]} source={require("./images/6.png")} />
-        <Image style={[styles.key_button, styles.key_7]} source={require("./images/7.png")} />
-        <Image style={[styles.key_button, styles.key_8]} source={require("./images/8.png")} />
-        <Image style={[styles.key_button, styles.key_9]} source={require("./images/9.png")} />
-        <Image style={[styles.key_button, styles.key_0]} source={require("./images/0.png")} />
-        <Image style={[styles.delete_button]} source={require("./images/Delete.png")} />
       </View>
     </SafeAreaView >
   );

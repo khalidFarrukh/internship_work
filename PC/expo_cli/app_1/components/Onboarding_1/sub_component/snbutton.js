@@ -11,47 +11,33 @@ import {
   View,
   Button,
 } from "react-native";
+import { useRoute } from '@react-navigation/native';
 
-const Onboarding_2 = ({ navigation }) => {
-  NavigationBar.setVisibilityAsync("hidden");
-  NavigationBar.setBehaviorAsync("overlay-swipe");
-  NavigationBar.setBackgroundColorAsync('#ffffff00')
+const Onboarding_1 = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
+        {/* <StatusBar style="auto" /> */}
         <Image style={styles.phone_image} source={require("./images/Phone.png")} />
         <View style={styles.msg_background} />
         <Image style={styles.title_image} source={require("./images/Title.png")} />
         <Image style={styles.dot_image} source={require("./images/Dot.png")} />
+        <Image style={styles.skip_image} source={require("./images/Skip.png")} />
         <View style={styles.button0}>
           <Pressable delayPressIn={0} onPress={() => navigation.navigate('Sign_in')}>
             <Image style={styles.skip_image} source={require("./images/Skip.png")} />
           </Pressable>
         </View>
         <View style={styles.button1}>
-          <Pressable delayPressIn={0} onPress={() => navigation.navigate('Onboarding_3')}>
+          <Pressable delayPressIn={0} onPress={() => navigation.navigate('Onboarding_2')}>
             <Image style={styles.next_image} source={require("./images/Next.png")} />
           </Pressable>
         </View>
       </View>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  phone_image: {
-    position: "absolute",
-    top: "-10%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
   msg_background: {
     position: "absolute",
     backgroundColor: "#5669FF",
@@ -101,4 +87,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Onboarding_2;
+export default Onboarding_1;

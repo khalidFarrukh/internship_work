@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import * as NavigationBar from 'expo-navigation-bar';
+import React, { useState, useTheme } from "react";
 import {
   SafeAreaView,
   Animated,
@@ -8,8 +9,31 @@ import {
   Text,
   View,
   Button,
+  Modal,
 } from "react-native";
 
+const Splash_screen = ({ navigation }) => {
+  NavigationBar.setVisibilityAsync("hidden");
+  NavigationBar.setBehaviorAsync("overlay-swipe");
+  NavigationBar.setBackgroundColorAsync('#ffffff00')
+  const [count, setCount] = useState(0);
+  if (count == 1) {
+    setTimeout(() => navigation.navigate("Onboarding_1"), 1000);
+  }
+  else {
+    setCount(count + 1);
+  }
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Image style={styles.s_logo} source={require("./images/s_l.png")} />
+        <Image style={styles.s_bg_tr} source={require("./images/s_b_t_r.png")} />
+        <Image style={styles.s_bg_dr} source={require("./images/s_b_d_r.png")} />
+        <Image style={styles.s_bg_dl} source={require("./images/s_b_d_l.png")} />
+      </View>
+    </SafeAreaView >
+  );
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -21,7 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     width: "50%",
-    height: 138,
+    // height: 138,
     resizeMode: "contain",
   },
   s_bg_tr: {
@@ -49,19 +73,4 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 });
-
-const Splash_screen = () => {
-  return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <Image style={styles.s_logo} source={require("./images/s_l.png")} />
-        <Image style={styles.s_bg_tr} source={require("./images/s_b_t_r.png")} />
-        <Image style={styles.s_bg_dr} source={require("./images/s_b_d_r.png")} />
-        <Image style={styles.s_bg_dl} source={require("./images/s_b_d_l.png")} />
-      </View>
-    </SafeAreaView>
-  );
-};
-
 export default Splash_screen;
