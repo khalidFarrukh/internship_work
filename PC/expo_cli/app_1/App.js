@@ -27,7 +27,7 @@ export default function App() {
     else if (splash == false) {
       alert("splash_false");
     }
-  });
+  }, []);
   // return (
   //   null
   //   // <NavigationContainer >
