@@ -20,9 +20,6 @@ const Splash_screen = ({ navigation }) => {
   if (count == 1) {
     setTimeout(() => navigation.navigate("Onboarding_1"), 1000);
   }
-  else {
-    setCount(count + 1);
-  }
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
