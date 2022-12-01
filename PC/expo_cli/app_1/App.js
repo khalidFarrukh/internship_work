@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import 'react-native-gesture-handler';
 import React, { useState, useEffect, useCallback } from "react";
-
 import Splash_screen from "./components/Splash_screen/Splash_screen";
 // import Onboarding_1 from "./components/Onboarding_1/Onboarding_1";
 // import Onboarding_2 from "./components/Onboarding_2/Onboarding_2";
@@ -21,10 +20,7 @@ export default function App() {
   if (splash == true) {
     setSplash(false);
     return (
-      <View>
-        <StatusBar style="auto" />
-        <Splash_screen />
-      </View>
+      <Splash_screen />
     );
   }
   else if (splash == false) {

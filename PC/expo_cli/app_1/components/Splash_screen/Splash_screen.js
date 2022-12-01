@@ -23,6 +23,7 @@ const Splash_screen = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
+        <StatusBar style="auto" />
         <Image style={styles.s_logo} source={require("./images/s_l.png")} />
         <Image style={styles.s_bg_tr} source={require("./images/s_b_t_r.png")} />
         <Image style={styles.s_bg_dr} source={require("./images/s_b_d_r.png")} />
