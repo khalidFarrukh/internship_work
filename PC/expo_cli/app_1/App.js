@@ -16,16 +16,19 @@ import Splash_screen from "./components/Splash_screen/Splash_screen";
 
 // const Stack = createStackNavigator();
 export default function App() {
-  const [splash, setSplash] = useState(true);
-  if (splash == true) {
-    setSplash(false);
-    return (
-      <Splash_screen />
-    );
-  }
-  else if (splash == false) {
-    alert("splash_false");
-  }
+  return (<Splash_screen />);
+  // const [splash, setSplash] = useState(true);
+  // const [counta, setCounta] = useState(0);
+  // if (splash == true) {
+  //   setSplash(false);
+  //   setCounta(counta + 1);
+  //   return (
+  //     <Splash_screen />
+  //   );
+  // }
+  // else if (splash == false) {
+  //   re
+  // }
   // return (
   //   null
   //   // <NavigationContainer >
