@@ -17,9 +17,9 @@ const Splash_screen = ({ navigation }) => {
   NavigationBar.setBehaviorAsync("overlay-swipe");
   NavigationBar.setBackgroundColorAsync('#ffffff00')
   const [count, setCount] = useState(0);
-  if (count == 1) {
-    setTimeout(() => navigation.navigate("Onboarding_1"), 1000);
-  }
+  // if (count == 1) {
+  //   setTimeout(() => navigation.navigate("Onboarding_1"), 1000);
+  // }
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
