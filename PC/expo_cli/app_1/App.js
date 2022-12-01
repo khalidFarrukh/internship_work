@@ -17,28 +17,30 @@ import Splash_screen from "./components/Splash_screen/Splash_screen";
 // const Stack = createStackNavigator();
 export default function App() {
   const [splash, setSplash] = useState(true);
-  if (splash == true) {
-    setSplash(false);
-    return (
-      <Splash_screen />
-    );
-  }
-  else if (splash == false) {
-    alert("splash_false");
-  }
-  return (
-    null
-    // <NavigationContainer >
-    //   <StatusBar style="auto" />
-    //   <Stack.Navigator initialRouteName="Onboarding_1" screenOptions={{ headerShown: false }}>
-    //     <Stack.Screen name="Splash_screen" component={Splash_screen} />
-    //     <Stack.Screen name="Onboarding_1" component={Onboarding_1} />
-    //     {/* <Stack.Screen name="Onboarding_2" component={Onboarding_2} />
-    //     <Stack.Screen name="Onboarding_3" component={Onboarding_3} />
-    //     <Stack.Screen name="Sign_in" component={Sign_in} />
-    //     <Stack.Screen name="Sign_up" component={Sign_up} />
-    //     <Stack.Screen name="Home" component={Home} /> */}
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-  );
+  useEffect(() => {
+    if (splash == true) {
+      setSplash(false);
+      return (
+        <Splash_screen />
+      );
+    }
+    else if (splash == false) {
+      alert("splash_false");
+    }
+  });
+  // return (
+  //   null
+  //   // <NavigationContainer >
+  //   //   <StatusBar style="auto" />
+  //   //   <Stack.Navigator initialRouteName="Onboarding_1" screenOptions={{ headerShown: false }}>
+  //   //     <Stack.Screen name="Splash_screen" component={Splash_screen} />
+  //   //     <Stack.Screen name="Onboarding_1" component={Onboarding_1} />
+  //   //     {/* <Stack.Screen name="Onboarding_2" component={Onboarding_2} />
+  //   //     <Stack.Screen name="Onboarding_3" component={Onboarding_3} />
+  //   //     <Stack.Screen name="Sign_in" component={Sign_in} />
+  //   //     <Stack.Screen name="Sign_up" component={Sign_up} />
+  //   //     <Stack.Screen name="Home" component={Home} /> */}
+  //   //   </Stack.Navigator>
+  //   // </NavigationContainer>
+  // );
 };
