@@ -17,11 +17,17 @@ import Splash_screen from "./components/Splash_screen/Splash_screen";
 
 // const Stack = createStackNavigator();
 export default function App() {
-  const [while_splash, setWhile_splash] = useState(true);
-  if (while_splash == true) {
-    alert("splash_true");
+  const [splash, setSplash] = useState(true);
+  if (splash == true) {
+    setSplash(false);
+    return (
+      <View>
+        <StatusBar style="auto" />
+        <Splash_screen />
+      </View>
+    );
   }
-  else if (while_splash == false) {
+  else if (splash == false) {
     alert("splash_false");
   }
   return (
