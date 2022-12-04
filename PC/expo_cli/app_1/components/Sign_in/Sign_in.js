@@ -1,4 +1,19 @@
 import { StatusBar } from "expo-status-bar";
+import * as NavigationBar from 'expo-navigation-bar';
+import {
+  Poppins_100Thin,
+  Poppins_200ExtraLight,
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+} from '@expo-google-fonts/poppins';
+
+import { useFonts } from 'expo-font';
+// import { Input, Icon } from '@rneui/themed';
+import Icon from 'react-native-vector-icons/Feather';
+
 import React, { useState } from "react";
 import {
   SafeAreaView,
@@ -9,20 +24,150 @@ import {
   TextInput,
   View,
   Button,
+  Switch,
+  Pressable,
 } from "react-native";
-import Svg, { Circle } from 'react-native-svg';
+import Background_theme from "../common/Background_theme/Background_theme";
+import Eventhub_logo from "./sub_components/Eventhub_logo";
+
+const Poppins_Thin = "Poppins_100Thin";
+const Poppins_ExtraLight = "Poppins_200ExtraLight";
+const Poppins_Light = "Poppins_300Light";
+const Poppins_Regular = "Poppins_400Regular";
+const Poppins_Medium = "Poppins_500Medium";
+const Poppins_SemiBold = "Poppins_600SemiBold";
+const Poppins_Bold = "Poppins_700Bold";
+
+import Svg, { Path } from 'react-native-svg';
 
 const Sign_in = () => {
+  NavigationBar.setVisibilityAsync("hidden");
+  NavigationBar.setBehaviorAsync("overlay-swipe");
+  NavigationBar.setBackgroundColorAsync('#ffffff00');
+  const [text, onChangeText] = useState("");
+  const [eyechange, setEyechange] = useState("eye");
+  const [remember_me, setRemember_me] = useState(false);
+
+  let [fontsLoaded, error] = useFonts({
+    Poppins_100Thin,
+    Poppins_200ExtraLight,
+    Poppins_300Light,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <StatusBar style="auto" />
-        <Image style={styles.bg_tr} source={require("./images/b_t_r.png")} />
-        <Image style={styles.bg_dr} source={require("./images/b_d_r.png")} />
-        <Image style={styles.bg_tl} source={require("./images/b_t_l.png")} />
-        <Image style={styles.bg_dl} source={require("./images/b_d_l.png")} />
-        <Image style={styles.brand_logo} source={require("./images/eventhub_logo.png")} />
-        <Image style={styles.title} source={require("./images/sign_in.png")} />
+        <Background_theme />
+        <Eventhub_logo style={{ position: "absolute", width: "15%", top: "10%", }} />
+
+        <Text style={{
+          position: "absolute",
+          top: "18%",
+          fontFamily: Poppins_Medium,
+          fontSize: 30,
+          color: "Black",
+        }}>EventHub</Text>
+
+        <Text style={{
+          position: "absolute",
+          top: "25%",
+          left: "8%",
+          fontFamily: Poppins_Medium,
+          fontSize: 24,
+          color: "Black",
+        }}>Sign in</Text>
+
+        <View style={{
+          position: "absolute",
+          flex: 1,
+          flexDirection: "row",
+          top: "31%",
+          width: "80%",
+          alignItems: "center",
+        }}>
+          <View style={{
+            position: "absolute",
+            borderWidth: 1,
+            borderColor: "#E4DFDF",
+            borderRadius: 7,
+            width: "100%",
+            height: "130%",
+          }} />
+          <Text style={{
+            paddingLeft: "4%",
+            paddingRight: "4%",
+          }}>
+            <Icon name="user" size={20} color="#807A7A" />
+          </Text>
+          <TextInput
+            style={{
+              height: 40,
+              width: "82%",
+              borderColor: "#807A7A",
+            }}
+            placeholder={"Username"}
+            onChangeText={onChangeText}
+            value={text}
+          />
+        </View>
+        <View style={{
+          position: "absolute",
+          flex: 1,
+          flexDirection: "row",
+          top: "38.5%",
+          width: "80%",
+          alignItems: "center",
+        }}>
+          <View style={{
+            position: "absolute",
+            borderWidth: 1,
+            borderColor: "#E4DFDF",
+            borderRadius: 7,
+            width: "100%",
+            height: "130%",
+          }} />
+          <Text style={{
+            paddingLeft: "4%",
+            paddingRight: "4%",
+          }}>
+            <Icon name="lock" size={20} color="#807A7A" />
+          </Text>
+          <TextInput
+            style={{
+              height: 40,
+              width: "70%",
+              borderColor: "#807A7A",
+            }}
+            placeholder={"Password"}
+            onChangeText={onChangeText}
+            value={text}
+          />
+          <Pressable style={{
+            paddingLeft: "4%",
+            paddingRight: "4%",
+          }} onPress={() => {
+            if (eyechange == "eye") {
+              setEyechange("eye-off");
+            }
+            else if (eyechange == "eye-off") {
+              setEyechange("eye");
+            }
+          }}>
+            <Icon name={eyechange} size={20} color="#807A7A" />
+          </Pressable>
+        </View>
+
+        {/* </View> */}
+        {/*
         <Image style={styles.user_box} source={require("./images/username_box.png")} />
         <Image style={styles.pass_box} source={require("./images/password_box.png")} />
         <Image style={styles.sliding_button} source={require("./images/button_off.png")} />
@@ -32,7 +177,7 @@ const Sign_in = () => {
         <Image style={styles.or} source={require("./images/or.png")} />
         <Image style={styles.login_with_google} source={require("./images/login_with_google.png")} />
         <Image style={styles.login_with_facebook} source={require("./images/login_with_facebook.png")} />
-        <Image style={styles.not_signed_up} source={require("./images/not_signed_up.png")} />
+        <Image style={styles.not_signed_up} source={require("./images/not_signed_up.png")} /> */}
       </View >
     </SafeAreaView >
   );
@@ -56,44 +201,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: '50%',
   },
-  bg_tr: {
-    position: "absolute",
-    top: "-50%",
-    right: "-35%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  bg_dr: {
-    position: "absolute",
-    top: "35%",
-    right: "-65%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  bg_tl: {
-    position: "absolute",
-    top: "-35%",
-    left: "-35%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  bg_dl: {
-    position: "absolute",
-    top: "50%",
-    left: "-50%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
   brand_logo: {
     position: "absolute",
-    top: "-35%",
-    width: "40%",
+    width: "100%",
     height: "100%",
-
     resizeMode: "contain",
   },
   title: {

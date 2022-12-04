@@ -2,10 +2,10 @@ import { StatusBar } from "expo-status-bar";
 import 'react-native-gesture-handler';
 import React, { useState, useEffect, useCallback } from "react";
 import Splash_screen from "./components/Splash_screen/Splash_screen";
-// import Onboarding_1 from "./components/Onboarding_1/Onboarding_1";
-// import Onboarding_2 from "./components/Onboarding_2/Onboarding_2";
-// import Onboarding_3 from "./components/Onboarding_3/Onboarding_3";
-// import Sign_in from "./components/Sign_in/Sign_in";
+import Onboarding_1 from "./components/Onboarding_1/Onboarding_1";
+import Onboarding_2 from "./components/Onboarding_2/Onboarding_2";
+import Onboarding_3 from "./components/Onboarding_3/Onboarding_3";
+import Sign_in from "./components/Sign_in/Sign_in";
 // import Sign_up from "./components/Sign_up/Sign_up";
 // import Verification from "./components/Verification/Verification";
 // import Reset_password from "./components/Reset_password/Reset_password";
@@ -16,21 +16,8 @@ import Splash_screen from "./components/Splash_screen/Splash_screen";
 
 // const Stack = createStackNavigator();
 export default function App() {
-  return (<Splash_screen />);
-  // const [splash, setSplash] = useState(true);
-  // const [counta, setCounta] = useState(0);
-  // if (splash == true) {
-  //   setSplash(false);
-  //   setCounta(counta + 1);
-  //   return (
-  //     <Splash_screen />
-  //   );
-  // }
-  // else if (splash == false) {
-  //   re
-  // }
+  return (<Sign_in />);
   // return (
-  //   null
   //   // <NavigationContainer >
   //   //   <StatusBar style="auto" />
   //   //   <Stack.Navigator initialRouteName="Onboarding_1" screenOptions={{ headerShown: false }}>

@@ -1,5 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from 'expo-navigation-bar';
+import {
+  Poppins_100Thin,
+  Poppins_200ExtraLight,
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+} from '@expo-google-fonts/poppins';
+import { useFonts } from 'expo-font';
 import React, { useState } from "react";
 import {
   SafeAreaView,
@@ -11,30 +21,97 @@ import {
   View,
   Button,
 } from "react-native";
+import S_n_button from "./../common/S_n_button";
+
+const Poppins_Thin = "Poppins_100Thin";
+const Poppins_ExtraLight = "Poppins_200ExtraLight";
+const Poppins_Light = "Poppins_300Light";
+const Poppins_Regular = "Poppins_400Regular";
+const Poppins_Medium = "Poppins_500Medium";
+const Poppins_SemiBold = "Poppins_600SemiBold";
+const Poppins_Bold = "Poppins_700Bold";
 
 const Onboarding_2 = ({ navigation }) => {
   NavigationBar.setVisibilityAsync("hidden");
   NavigationBar.setBehaviorAsync("overlay-swipe");
-  NavigationBar.setBackgroundColorAsync('#ffffff00')
+  NavigationBar.setBackgroundColorAsync('#ffffff00');
+  let [fontsLoaded, error] = useFonts({
+    Poppins_100Thin,
+    Poppins_200ExtraLight,
+    Poppins_300Light,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
+        <StatusBar style="auto" />
         <Image style={styles.phone_image} source={require("./images/Phone.png")} />
-        <View style={styles.msg_background} />
-        <Image style={styles.title_image} source={require("./images/Title.png")} />
-        <Image style={styles.dot_image} source={require("./images/Dot.png")} />
-        <View style={styles.button0}>
-          <Pressable delayPressIn={0} onPress={() => navigation.navigate('Sign_in')}>
-            <Image style={styles.skip_image} source={require("./images/Skip.png")} />
-          </Pressable>
+        <View style={{
+          position: "absolute",
+          backgroundColor: "#5669FF",
+          borderTopLeftRadius: 40,
+          borderTopRightRadius: 40,
+          top: "67%",
+          width: "100%",
+          height: "33%",
+          resizeMode: "contain",
+        }} />
+        <View style={{
+          flex: 1,
+          alignItems: "center",
+        }}>
+          <Text style={{
+            position: "absolute",
+            top: "71%",
+            fontFamily: Poppins_Medium,
+            fontSize: 22,
+            color: "white",
+          }}>Explore Upcoming and</Text>
+          <Text style={{
+            position: "absolute",
+            top: "75%",
+            fontFamily: Poppins_Medium,
+            fontSize: 22,
+            color: "white",
+          }}>Nearby Events</Text>
+
+          <Text style={{
+            position: "absolute",
+            top: "81%",
+            fontFamily: Poppins_Light,
+            fontSize: 15,
+            color: "white",
+            opacity: 0.8,
+          }}>In publishing and graphic design, Lorem is</Text>
+
+          <Text style={{
+            position: "absolute",
+            top: "84%",
+            fontFamily: Poppins_Light,
+            fontSize: 15,
+            color: "white",
+            opacity: 0.8,
+          }}>a placeholder text commonly</Text>
         </View>
-        <View style={styles.button1}>
-          <Pressable delayPressIn={0} onPress={() => navigation.navigate('Onboarding_3')}>
-            <Image style={styles.next_image} source={require("./images/Next.png")} />
-          </Pressable>
-        </View>
+        <Image style={{
+          position: "absolute",
+          top: "91%",
+          width: "10%",
+          resizeMode: "contain",
+        }} source={require("./images/Dot.png")} />
+
+        <S_n_button value={"Skip"} fF={Poppins_Medium} op={0.5} top={"91%"} left={"8%"} />
+        <S_n_button value={"Next"} fF={Poppins_Medium} top={"91%"} left={"82%"} />
+
       </View>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
 
