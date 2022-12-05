@@ -5,20 +5,20 @@ import {
   Pressable,
 } from "react-native";
 
-const S_n_button = ({ value, fF, op, top, left }) => {
+const S_n_button = ({ position, value, fontfamily, op, top, left, fontsize, fontcolor }) => {
   return (
     <View style={{
-      position: "absolute",
+      position: position,
       width: "100%",
       top: top,
+      left: left,
+
     }}>
       <Pressable delayPressIn={0} onPress={() => { }}>
         <Text style={{
-          position: "absolute",
-          fontFamily: fF,
-          fontSize: 18,
-          left: left,
-          color: "white",
+          fontFamily: fontfamily,
+          fontSize: fontsize,
+          color: fontcolor,
           opacity: op,
         }}>{value}</Text>
       </Pressable>

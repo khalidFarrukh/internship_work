@@ -1,4 +1,17 @@
 import { StatusBar } from "expo-status-bar";
+import * as NavigationBar from 'expo-navigation-bar';
+import {
+  Poppins_100Thin,
+  Poppins_200ExtraLight,
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+} from '@expo-google-fonts/poppins';
+
+import { useFonts } from 'expo-font';
+import { useRoute } from '@react-navigation/native';
 import React, { useState } from "react";
 import {
   SafeAreaView,
@@ -9,7 +22,71 @@ import {
   TextInput,
   View,
   Button,
+  Switch,
+  Pressable,
 } from "react-native";
+
+import KeyboardAvoidingWrapper from "../common/KeyboardAvoidingWrapper";
+import Background_theme from "../common/Background_theme/Background_theme";
+import Back_arrow_button from "../common/Back_arrow_button";
+import Left_heading from "../common/Left_heading";
+import User_field from "../common/User_field";
+import Mail_field from "../common/Mail_field";
+import Password_field from "../common/Password_field";
+import Confirm_password_field from "../common/Confirm_password_field";
+import Theme_button from "../common/Theme_button";
+import OR from "../common/OR";
+import Footer_question from "../common/Footer_question";
+
+const Poppins_Thin = "Poppins_100Thin";
+const Poppins_ExtraLight = "Poppins_200ExtraLight";
+const Poppins_Light = "Poppins_300Light";
+const Poppins_Regular = "Poppins_400Regular";
+const Poppins_Medium = "Poppins_500Medium";
+const Poppins_SemiBold = "Poppins_600SemiBold";
+const Poppins_Bold = "Poppins_700Bold";
+
+const Sign_up = ({ navigation }) => {
+  NavigationBar.setVisibilityAsync("hidden");
+  NavigationBar.setBehaviorAsync("overlay-swipe");
+  const route = useRoute().name;
+
+  let [fontsLoaded, error] = useFonts({
+    Poppins_100Thin,
+    Poppins_200ExtraLight,
+    Poppins_300Light,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <Background_theme route_name={route} />
+        <Back_arrow_button />
+        <Left_heading value={"Sign up"} fontfamily={Poppins_Medium} top={"12%"} />
+        <User_field fontfamily={Poppins_Medium} top={"20%"} />
+        <Mail_field fontfamily={Poppins_Medium} top={"29%"} />
+        <Password_field fontfamily={Poppins_Medium} top={"37%"} />
+        <Confirm_password_field fontfamily={Poppins_Medium} top={"45%"} />
+
+        <Theme_button value={"SIGN UP"} fontfamily={Poppins_Medium} />
+        <OR fontfamily={Poppins_Medium} navigation={navigation} />
+        <Footer_question
+          value1={"Already have an account?"}
+          value2={"Sign in"}
+          fontfamily={Poppins_Medium}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -18,143 +95,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  bg_tr: {
-    position: "absolute",
-    top: "-50%",
-    right: "-35%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  bg_dr: {
-    position: "absolute",
-    top: "35%",
-    right: "-65%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  bg_tl: {
-    position: "absolute",
-    top: "-35%",
-    left: "-35%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  bg_dl: {
-    position: "absolute",
-    top: "50%",
-    left: "-50%",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  go_back_icon: {
-    position: "absolute",
-    top: "-40%",
-    left: "7%",
-    width: "6%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  title: {
-    position: "absolute",
-    top: "-35%",
-    left: "8%",
-    width: "20%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  user_box: {
-    position: "absolute",
-    top: "-28%",
-    width: "85%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  email_box: {
-    position: "absolute",
-    top: "-19%",
-    width: "85%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  pass1_box: {
-    position: "absolute",
-    top: "-10%",
-    width: "85%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  pass2_box: {
-    position: "absolute",
-    top: "-1%",
-    width: "85%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  sign_up_button: {
-    position: "absolute",
-    top: "11%",
-    width: "90%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  or: {
-    position: "absolute",
-    top: "17%",
-    width: "7%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  login_with_google: {
-    position: "absolute",
-    top: "25%",
-    width: "90%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  login_with_facebook: {
-    position: "absolute",
-    top: "35%",
-    width: "90%",
-    height: "100%",
-    resizeMode: "contain",
-  },
-  have_sign_in: {
-    position: "absolute",
-    top: "43%",
-    left:"8%",
-    width: "80%",
-    height: "100%",
-    resizeMode: "contain",
-  }
 });
-
-const Sign_up = () => {
-  return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <Image style={styles.bg_tr} source={require("./images/b_t_r.png")} />
-        <Image style={styles.bg_dr} source={require("./images/b_d_r.png")} />
-        <Image style={styles.bg_tl} source={require("./images/b_t_l.png")} />
-        <Image style={styles.bg_dl} source={require("./images/b_d_l.png")} />
-        <Image style={styles.go_back_icon} source={require("./images/back.png")} />
-        <Image style={styles.title} source={require("./images/sign_up.png")} />
-        <Image style={styles.user_box} source={require("./images/username_box.png")} />
-        <Image style={styles.email_box} source={require("./images/email_box.png")} />
-        <Image style={styles.pass1_box} source={require("./images/password_box.png")} />
-        <Image style={styles.pass2_box} source={require("./images/password_box.png")} />
-        <Image style={styles.sign_up_button} source={require("./images/button_sign_up.png")} />
-        <Image style={styles.or} source={require("./images/or.png")} />
-        <Image style={styles.login_with_google} source={require("./images/login_with_google.png")} />
-        <Image style={styles.login_with_facebook} source={require("./images/login_with_facebook.png")} />
-        <Image style={styles.have_sign_in} source={require("./images/have_sign_in.png")} />
-      </View>
-    </SafeAreaView>
-  );
-};
-
 export default Sign_up;

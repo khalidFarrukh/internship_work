@@ -108,8 +108,8 @@ const Onboarding_3 = ({ navigation }) => {
           resizeMode: "contain",
         }} source={require("./images/Dot.png")} />
 
-        <S_n_button value={"Skip"} fF={Poppins_Medium} op={0.5} top={"91%"} left={"8%"} />
-        <S_n_button value={"Next"} fF={Poppins_Medium} top={"91%"} left={"82%"} />
+        <S_n_button position={"absolute"} value={"Skip"} fontcolor={"white"} fontfamily={Poppins_Medium} op={0.5} top={"91%"} left={"8%"} fontsize={18} />
+        <S_n_button position={"absolute"} value={"Next"} fontcolor={"white"} fontfamily={Poppins_Medium} top={"91%"} left={"82%"} fontsize={18} />
 
       </View>
     </SafeAreaView >

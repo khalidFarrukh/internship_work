@@ -11,12 +11,14 @@ import {
   Button,
 } from "react-native";
 
-const Background_theme = () => {
+const Background_theme = ({ route_name }) => {
   return (
     <>
       <Image style={styles.bg_tr} source={require("./images/b_t_r.png")} />
       <Image style={styles.bg_dr} source={require("./images/b_d_r.png")} />
-      <Image style={styles.bg_tl} source={require("./images/b_t_l.png")} />
+      {
+        route_name == "Sign_up" ? null : <Image style={styles.bg_tl} source={require("./images/b_t_l.png")} />
+      }
       <Image style={styles.bg_dl} source={require("./images/b_d_l.png")} />
     </>
   );
