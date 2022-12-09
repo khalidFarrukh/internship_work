@@ -32,7 +32,7 @@ import {
 import Background_theme from "../common/Background_theme/Background_theme";
 import Eventhub_logo from "./sub_components/Eventhub_logo";
 import Left_heading from "../common/Left_heading";
-import User_field from "../common/User_field";
+import User_and_mail_field from "../common/User_and_mail_field";
 import Password_field from "../common/Password_field";
 import Remember_and_forget from "../common/Remember_and_forget";
 import Theme_button from "../common/Theme_button";
@@ -89,9 +89,9 @@ const Sign_in = ({ navigation }) => {
           fontfamily={Poppins_Medium}
         />
         <Left_heading value={"Sign in"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.25 * dheight} left={.08 * dwidth} />
-        <User_field fontfamily={Poppins_Medium} top={.32 * dheight} />
-        <Password_field fontfamily={Poppins_Medium} top={.40 * dheight} />
-        <Remember_and_forget navigation={navigation} fontfamily={Poppins_Light} top={.46 * dheight} />
+        <User_and_mail_field placeholder={"Your username"} icon={"user"} fontfamily={Poppins_Medium} top={.32 * dheight} />
+        <Password_field placeholder={"Your password"} fontfamily={Poppins_Medium} top={.40 * dheight} />
+        <Remember_and_forget navigation={navigation} text_color={themeTextStyle.color} fontfamily={Poppins_Light} top={.46 * dheight} />
         <Theme_button value={"SIGN IN"} fontfamily={Poppins_Medium} top={.55 * dheight} />
         <OR fontfamily={Poppins_Medium} navigation={navigation} />
         <Footer_question

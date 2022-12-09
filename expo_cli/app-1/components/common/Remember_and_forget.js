@@ -18,7 +18,7 @@ import S_n_button from "./../common//S_n_button";
 const dwidth = Dimensions.get("screen").width;
 const dheight = Dimensions.get("screen").height;
 
-const Remember_and_forget = ({ navigation, fontfamily, top, }) => {
+const Remember_and_forget = ({ navigation, text_color, fontfamily, top, }) => {
   const [remember_me, setRemember_me] = useState(false);
   const toggleSwitch = () => setRemember_me(previousState => !previousState);
 
@@ -41,7 +41,7 @@ const Remember_and_forget = ({ navigation, fontfamily, top, }) => {
       <Text style={{
         fontFamily: fontfamily,
         fontSize: 14,
-        color: "black",
+        color: text_color,
         opacity: 1,
       }}>
         Remember me
@@ -50,7 +50,7 @@ const Remember_and_forget = ({ navigation, fontfamily, top, }) => {
         route_name={"Sign_in"}
         navigation={navigation}
         value={"Forget Password?"}
-        fontcolor={"black"}
+        fontcolor={text_color}
         fontfamily={fontfamily}
         left={"40%"}
         fontsize={14}

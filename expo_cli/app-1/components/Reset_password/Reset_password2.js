@@ -32,7 +32,6 @@ import Background_theme from "../common/Background_theme/Background_theme";
 import Back_arrow_button from "../common/Back_arrow_button";
 import Left_heading from "../common/Left_heading";
 import Password_field from "../common/Password_field";
-import Confirm_password_field from "../common/Confirm_password_field";
 import Theme_button from "../common/Theme_button";
 
 const Poppins_Thin = "Poppins_100Thin";
@@ -75,7 +74,7 @@ const Reset_password2 = ({ navigation }) => {
           height: dheight
         }} />
         <Background_theme route_name={route} />
-        <Back_arrow_button route_name={route} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
+        <Back_arrow_button route_name={route} color={themeTextStyle.color} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
         <Left_heading value={"Reset Password"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
         <View style={{
           position: "absolute",
@@ -94,9 +93,9 @@ const Reset_password2 = ({ navigation }) => {
             opacity: 0.8,
           }}>Please enter your new password</Text>
         </View>
-        <Password_field fontfamily={Poppins_Medium} top={"22%"} />
-        <Confirm_password_field fontfamily={Poppins_Medium} top={"30%"} />
-        <Theme_button value={"RESET"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={"38%"} />
+        <Password_field placeholder={"Your password"} fontfamily={Poppins_Medium} top={.22 * dheight} />
+        <Password_field placeholder={"Confirm password"} fontfamily={Poppins_Medium} top={.3 * dheight} />
+        <Theme_button value={"RESET"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={.38 * dheight} />
       </ScrollView>
     </SafeAreaView >
   );

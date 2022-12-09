@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/Feather';
 
 const Mail_field = ({ fontfamily, top, }) => {
   const [isFocused, onIsFocused] = useState(false);
+  const [isalert, onIsalert] = useState(false);
   const [text, onChangeText] = useState("");
   return (
     <View style={{
@@ -28,7 +29,7 @@ const Mail_field = ({ fontfamily, top, }) => {
       <View style={{
         position: "absolute",
         borderWidth: 1,
-        borderColor: isFocused == true ? "#5669FF" : "#E4DFDF",
+        borderColor: isFocused == true ? "#5669FF" : isalert == true ? "red" : "#E4DFDF",
         borderRadius: 7,
         width: "100%",
         height: "130%",
@@ -37,7 +38,7 @@ const Mail_field = ({ fontfamily, top, }) => {
         paddingLeft: "4%",
         paddingRight: "4%",
       }}>
-        <Icon name="mail" size={20} color={isFocused == true ? "#5669FF" : "#807A7A"} />
+        <Icon name="mail" size={20} color={isFocused == true ? "#5669FF" : isalert == true ? "red" : "#807A7A"} />
       </Text>
       <TextInput
         style={{
@@ -48,10 +49,11 @@ const Mail_field = ({ fontfamily, top, }) => {
         }}
         cursorColor={"#5669FF"}
         placeholder={"xyz@gmail.com"}
-        placeholderTextColor="#747688"
+        placeholderTextColor={isalert == true ? "red" : "#747688"}
         onChangeText={onChangeText}
         onFocus={() => {
           onIsFocused(true);
+          onIsalert(false);
         }}
         onEndEditing={() => {
           onIsFocused(false);

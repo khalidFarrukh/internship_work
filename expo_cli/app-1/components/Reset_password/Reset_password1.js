@@ -32,7 +32,7 @@ import {
 import Background_theme from "../common/Background_theme/Background_theme";
 import Back_arrow_button from "../common/Back_arrow_button";
 import Left_heading from "../common/Left_heading";
-import Mail_field from "../common/Mail_field";
+import User_and_mail_field from "../common/User_and_mail_field";
 import Theme_button from "../common/Theme_button";
 
 const Poppins_Thin = "Poppins_100Thin";
@@ -94,7 +94,7 @@ const Reset_password1 = ({ navigation }) => {
             opacity: 0.8,
           }}>Please enter your email address to request a password reset</Text>
         </View>
-        <Mail_field fontfamily={Poppins_Medium} top={.27 * dheight} />
+        <User_and_mail_field placeholder={"abc@email.com"} icon={"mail"} fontfamily={Poppins_Medium} top={.27 * dheight} />
         <Theme_button value={"SEND"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={.38 * dheight} />
       </ScrollView >
     </SafeAreaView >

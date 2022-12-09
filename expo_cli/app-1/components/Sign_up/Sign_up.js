@@ -32,10 +32,9 @@ import {
 import Background_theme from "../common/Background_theme/Background_theme";
 import Back_arrow_button from "../common/Back_arrow_button";
 import Left_heading from "../common/Left_heading";
-import User_field from "../common/User_field";
+import User_and_mail_field from "../common/User_and_mail_field";
 import Mail_field from "../common/Mail_field";
 import Password_field from "../common/Password_field";
-import Confirm_password_field from "../common/Confirm_password_field";
 import Theme_button from "../common/Theme_button";
 import OR from "../common/OR";
 import Footer_question from "../common/Footer_question";
@@ -84,10 +83,10 @@ const Sign_up = ({ navigation }) => {
         <Background_theme route_name={route} />
         <Back_arrow_button route_name={route} color={themeTextStyle.color} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
         <Left_heading value={"Sign up"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
-        <User_field fontfamily={Poppins_Medium} top={.2 * dheight} />
-        <Mail_field fontfamily={Poppins_Medium} top={.28 * dheight} />
-        <Password_field fontfamily={Poppins_Medium} top={.36 * dheight} />
-        <Confirm_password_field fontfamily={Poppins_Medium} top={.44 * dheight} />
+        <User_and_mail_field placeholder={"Your username"} icon={"user"} fontfamily={Poppins_Medium} top={.2 * dheight} />
+        <User_and_mail_field placeholder={"abc@email.com"} icon={"mail"} fontfamily={Poppins_Medium} top={.28 * dheight} />
+        <Password_field placeholder={"Your password"} fontfamily={Poppins_Medium} top={.36 * dheight} />
+        <Password_field placeholder={"Confirm password"} fontfamily={Poppins_Medium} top={.44 * dheight} />
         <Theme_button value={"SIGN UP"} fontfamily={Poppins_Medium} top={.55 * dheight} />
         <OR fontfamily={Poppins_Medium} navigation={navigation} />
         <Footer_question

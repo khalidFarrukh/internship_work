@@ -9,11 +9,17 @@ import {
   View,
   Button,
   Pressable,
+  Dimensions,
 } from "react-native";
 import Icon from 'react-native-vector-icons/Feather';
+import Invalid from "./Invalid";
 
-const Password_field = ({ fontfamily, top, }) => {
+const dwidth = Dimensions.get("screen").width;
+const dheight = Dimensions.get("screen").height;
+
+const Password_field = ({ placeholder, fontfamily, top, }) => {
   const [isFocused, onIsFocused] = useState(false);
+  const [isalert, onIsalert] = useState(false);
   const [text, onChangeText] = useState("");
   const [eyechange, setEyechange] = useState("eye")
 
@@ -23,13 +29,18 @@ const Password_field = ({ fontfamily, top, }) => {
       flex: 1,
       flexDirection: "row",
       top: top,
-      width: "80%",
+      width: .8 * dwidth,
       alignItems: "center",
     }}>
+      <Invalid DON={
+        {
+          display: isalert == true ? "flex" : "none"
+        }
+      } fontfamily={fontfamily} left={-.05 * dwidth} />
       <View style={{
         position: "absolute",
         borderWidth: 1,
-        borderColor: isFocused == true ? "#5669FF" : "#E4DFDF",
+        borderColor: isFocused == true ? "#5669FF" : isalert == true ? "red" : "#E4DFDF",
         borderRadius: 7,
         width: "100%",
         height: "130%",
@@ -38,7 +49,7 @@ const Password_field = ({ fontfamily, top, }) => {
         paddingLeft: "4%",
         paddingRight: "4%",
       }}>
-        <Icon name="lock" size={20} color={isFocused == true ? "#5669FF" : "#807A7A"} />
+        <Icon name="lock" size={20} color={isFocused == true ? "#5669FF" : isalert == true ? "red" : "#807A7A"} />
       </Text>
       <TextInput
         style={{
@@ -47,15 +58,19 @@ const Password_field = ({ fontfamily, top, }) => {
           fontFamily: fontfamily,
         }}
         cursorColor={"#5669FF"}
-        placeholder={"Your password"}
-        placeholderTextColor="#747688"
+        placeholder={placeholder}
+        placeholderTextColor={isalert == true ? "red" : "#747688"}
         onChangeText={onChangeText}
         secureTextEntry={eyechange == "eye"}
         onFocus={() => {
           onIsFocused(true);
+          onIsalert(false);
         }}
         onEndEditing={() => {
           onIsFocused(false);
+          if (text.length == 0) {
+            onIsalert(true);
+          }
         }}
         value={text}
       />
@@ -63,6 +78,7 @@ const Password_field = ({ fontfamily, top, }) => {
         paddingLeft: "4%",
         paddingRight: "4%",
       }}
+        disabled={text.length == 0 ? true : false}
         onPress={() => {
           if (eyechange == "eye") {
             setEyechange("eye-off");
