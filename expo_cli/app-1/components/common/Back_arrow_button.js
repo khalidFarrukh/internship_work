@@ -13,7 +13,7 @@ import {
   BackHandler,
 } from "react-native";
 
-export default function Back_arrow_button({ route_name, navigation, position, width, top, left }) {
+export default function Back_arrow_button({ route_name, color, navigation, position, width, top, left }) {
   return (
     <>
       <Pressable onPress={() => {
@@ -28,8 +28,8 @@ export default function Back_arrow_button({ route_name, navigation, position, wi
         }
       }} style={[{ aspectRatio: 1, }, { position: "absolute", width: width, top: top, left: "8%", }]}>
         <Svg width="100%" height="100%" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <Path d="M18.7833 8.25H1.75" stroke="#120D26" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <Path d="M8.25 14.75L1.75 8.25L8.25 1.75" stroke="#120D26" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <Path d="M18.7833 8.25H1.75" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <Path d="M8.25 14.75L1.75 8.25L8.25 1.75" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </Svg>
 
       </Pressable>

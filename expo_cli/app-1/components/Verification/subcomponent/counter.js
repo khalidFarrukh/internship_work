@@ -14,9 +14,6 @@ import {
   ScrollView,
 } from "react-native";
 
-const dwidth = Dimensions.get("screen").width;
-const dheight = Dimensions.get("screen").height;
-
 const Counter = (props) => {
   const [time, setTime] = React.useState(60);
   const timerRef = React.useRef(time);
@@ -38,7 +35,7 @@ const Counter = (props) => {
     <>
       <View style={{
         position: "absolute",
-        top: "50%",
+        top: props.top,
         flex: 1,
         flexDirection: "row",
         alignItems: "center",

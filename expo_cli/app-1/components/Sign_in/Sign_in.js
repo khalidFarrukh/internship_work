@@ -79,8 +79,7 @@ const Sign_in = ({ navigation }) => {
         <View style={{
           width: dwidth,
           height: dheight
-        }}>
-        </View>
+        }} />
         <Background_theme route_name={route} />
         <Eventhub_logo
           position={"absolute"}
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   darkThemeText: {
-    color: 'white',
+    color: '#FFFFFF',
   },
 });
 

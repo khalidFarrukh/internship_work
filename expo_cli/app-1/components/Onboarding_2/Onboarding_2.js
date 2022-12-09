@@ -66,8 +66,7 @@ const Onboarding_2 = ({ navigation }) => {
         <View style={{
           width: dwidth,
           height: dheight
-        }}>
-        </View>
+        }} />
         <Image style={styles.phone_image} source={require("./images/Phone.png")} />
         <View style={{
           position: "absolute",

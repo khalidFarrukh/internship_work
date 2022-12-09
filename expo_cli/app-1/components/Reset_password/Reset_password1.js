@@ -28,12 +28,6 @@ import {
   Dimensions,
   useColorScheme,
 } from "react-native";
-import {
-  CodeField,
-  Cursor,
-  useBlurOnFulfill,
-  useClearByFocusCell,
-} from 'react-native-confirmation-code-field';
 
 import Background_theme from "../common/Background_theme/Background_theme";
 import Back_arrow_button from "../common/Back_arrow_button";
@@ -49,7 +43,6 @@ const Poppins_Medium = "Poppins_500Medium";
 const Poppins_SemiBold = "Poppins_600SemiBold";
 const Poppins_Bold = "Poppins_700Bold";
 
-const CELL_COUNT = 4;
 const dwidth = Dimensions.get("screen").width;
 const dheight = Dimensions.get("screen").height;
 
@@ -61,12 +54,6 @@ const Reset_password1 = ({ navigation }) => {
   const themeContainerStyle = colorScheme === 'light' ? styles.lightContainer : styles.darkContainer;
   NavigationBar.setBackgroundColorAsync(themeContainerStyle.backgroundColor);
   const route = useRoute().name;
-  const [value, setValue] = useState('');
-  const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
-  const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-    value,
-    setValue,
-  });
   let [fontsLoaded, error] = useFonts({
     Poppins_100Thin,
     Poppins_200ExtraLight,
@@ -88,8 +75,8 @@ const Reset_password1 = ({ navigation }) => {
           height: dheight
         }} />
         <Background_theme route_name={route} />
-        <Back_arrow_button route_name={route} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
-        <Left_heading value={"Reset Password"} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
+        <Back_arrow_button route_name={route} color={themeTextStyle.color} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
+        <Left_heading value={"Reset Password"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
         <View style={{
           position: "absolute",
           flex: 1,
@@ -103,7 +90,7 @@ const Reset_password1 = ({ navigation }) => {
             paddingRight: "25%",
             fontFamily: Poppins_Light,
             fontSize: 14,
-            color: "black",
+            color: themeTextStyle.color,
             opacity: 0.8,
           }}>Please enter your email address to request a password reset</Text>
         </View>
@@ -126,31 +113,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#120D26',
   },
   lightThemeText: {
-    color: '#242c40',
+    color: 'black',
   },
   darkThemeText: {
-    color: '#d0d0c0',
+    color: 'white',
   },
-  root: { flex: 1, padding: 20 },
-  codeFieldRoot: {
-    position: "absolute",
-    top: "25%",
-    width: "80%",
-  },
-  cell: {
-    width: .16 * dwidth,
-    height: .07 * dheight,
-    lineHeight: 64,
-    fontSize: 24,
-    fontFamily: Poppins_Medium,
-    borderWidth: 2,
-    borderRadius: 15,
-    borderColor: '#00000030',
-    textAlign: 'center',
-    top: 10,
-  },
-  focusCell: {
-    borderColor: '#000',
-  },
+
 });
 export default Reset_password1;

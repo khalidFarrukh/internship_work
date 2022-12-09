@@ -80,11 +80,10 @@ const Sign_up = ({ navigation }) => {
         <View style={{
           width: dwidth,
           height: dheight
-        }}>
-        </View>
+        }} />
         <Background_theme route_name={route} />
-        <Back_arrow_button route_name={route} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
-        <Left_heading value={"Sign up"} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
+        <Back_arrow_button route_name={route} color={themeTextStyle.color} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
+        <Left_heading value={"Sign up"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
         <User_field fontfamily={Poppins_Medium} top={.2 * dheight} />
         <Mail_field fontfamily={Poppins_Medium} top={.28 * dheight} />
         <Password_field fontfamily={Poppins_Medium} top={.36 * dheight} />
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   darkThemeText: {
-    color: 'white',
+    color: '#FFFFFF',
   },
 });
 export default Sign_up;

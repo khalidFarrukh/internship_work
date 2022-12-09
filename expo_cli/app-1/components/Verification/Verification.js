@@ -24,8 +24,9 @@ import {
   Button,
   Switch,
   Pressable,
-  Dimensions,
   ScrollView,
+  Dimensions,
+  useColorScheme,
 } from "react-native";
 import {
   CodeField,
@@ -53,8 +54,13 @@ const dwidth = Dimensions.get("screen").width;
 const dheight = Dimensions.get("screen").height;
 
 const Verification = ({ navigation }) => {
+  const [isFocused, onIsFocused] = useState(false);
   NavigationBar.setVisibilityAsync("hidden");
   NavigationBar.setBehaviorAsync("overlay-swipe");
+  const colorScheme = useColorScheme();
+  const themeTextStyle = colorScheme === 'light' ? styles.lightThemeText : styles.darkThemeText;
+  const themeContainerStyle = colorScheme === 'light' ? styles.lightContainer : styles.darkContainer;
+  NavigationBar.setBackgroundColorAsync(themeContainerStyle.backgroundColor);
   const route = useRoute().name;
   const [value, setValue] = useState('');
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
@@ -75,38 +81,41 @@ const Verification = ({ navigation }) => {
     return null;
   }
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView>
+    <SafeAreaView style={[{ flex: 1 }, themeContainerStyle]}>
+      <ScrollView contentContainerStyle={[styles.container, themeContainerStyle]}>
         <StatusBar style="auto" />
-        <Text style={{ fontSize: 642 }}>
-        </Text>
+        <View style={{
+          width: dwidth,
+          height: dheight
+        }} />
         <Background_theme route_name={route} />
-        <Back_arrow_button route_name={route} navigation={navigation} />
-        <Left_heading value={"Verification"} fontfamily={Poppins_Medium} top={"12%"} left={"8%"} />
+        <Back_arrow_button route_name={route} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
+        <Left_heading value={"Verification"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
         <View style={{
           position: "absolute",
           flex: 1,
-          width: "100%",
-          height: "100%",
-          left: "8%",
+          width: dwidth,
+          height: dheight,
+          left: .08 * dwidth,
         }}>
           <Text style={{
             position: "absolute",
-            top: "16.5%",
-            paddingRight: "25%",
+            top: .165 * dheight,
+            paddingRight: .25 * dwidth,
             fontFamily: Poppins_Light,
             fontSize: 14,
-            color: "black",
+            color: themeTextStyle.color,
             opacity: 0.8,
           }}>We have send you the verification code on
             <Text style={{
               fontFamily: Poppins_Medium,
               fontSize: 14,
-              color: "black",
+              color: themeTextStyle.color,
               opacity: 1,
             }}>{" "}{"khalidfarrukh951@gmail.com"}</Text>
           </Text>
         </View>
+        {/* <View style={{}}> */}
         <CodeField
           ref={ref}
           {...props}
@@ -114,20 +123,26 @@ const Verification = ({ navigation }) => {
           value={value}
           onChangeText={setValue}
           cellCount={CELL_COUNT}
-          rootStyle={styles.codeFieldRoot}
+          rootStyle={{
+            position: "absolute",
+            top: .25 * dheight,
+            width: .8 * dwidth,
+          }}
           keyboardType="number-pad"
           textContentType="oneTimeCode"
           renderCell={({ index, symbol, isFocused }) => (
             <Text
               key={index}
-              style={[styles.cell, isFocused && styles.focusCell]}
+              style={[styles.cell, themeTextStyle, isFocused && styles.focusCell
+              ]}
               onLayout={getCellOnLayoutHandler(index)}>
               {symbol || (isFocused ? <Cursor /> : null)}
             </Text>
           )}
         />
-        <Theme_button value={"CONTINUE"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={"38%"} />
-        <Counter fontfamily={Poppins_Medium} />
+        {/* </View> */}
+        <Theme_button value={"CONTINUE"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={.38 * dheight} />
+        <Counter fontfamily={Poppins_Medium} top={.5 * dheight} />
       </ScrollView>
     </SafeAreaView >
   );
@@ -136,15 +151,21 @@ const Verification = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
   },
-  root: { flex: 1, padding: 20 },
-  codeFieldRoot: {
-    position: "absolute",
-    top: "25%",
-    width: "80%",
+  lightContainer: {
+    backgroundColor: 'white',
   },
+  darkContainer: {
+    backgroundColor: '#120D26',
+  },
+  lightThemeText: {
+    color: 'black',
+  },
+  darkThemeText: {
+    color: 'white',
+  },
+  root: { flex: 1, padding: 20 },
   cell: {
     width: .16 * dwidth,
     height: .07 * dheight,
@@ -153,12 +174,12 @@ const styles = StyleSheet.create({
     fontFamily: Poppins_Medium,
     borderWidth: 2,
     borderRadius: 15,
-    borderColor: '#00000030',
+    borderColor: '#DADADA',
     textAlign: 'center',
     top: 10,
   },
   focusCell: {
-    borderColor: '#000',
+    borderColor: "#5669FF"
   },
 });
 export default Verification;
