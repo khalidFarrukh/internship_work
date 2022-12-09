@@ -10,12 +10,15 @@ import {
   Button,
   Pressable,
   Dimensions,
+  useColorScheme,
 } from "react-native";
 
 const dwidth = Dimensions.get("screen").width;
 const dheight = Dimensions.get("screen").height;
 
 const Footer_question = ({ navigation, value1, value2, fontfamily, color1, color2, op, top, left }) => {
+  const colorScheme = useColorScheme();
+  const default_text_color = colorScheme === 'light' ? "black" : "#FFFFFF";
   return (
     <View style={{
       position: "absolute",
@@ -33,7 +36,7 @@ const Footer_question = ({ navigation, value1, value2, fontfamily, color1, color
         <Text style={{
           fontSize: 14,
           fontFamily: fontfamily,
-          color: "black",
+          color: default_text_color,
         }}>
           {value1}
         </Text>

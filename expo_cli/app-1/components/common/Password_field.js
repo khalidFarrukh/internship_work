@@ -96,7 +96,7 @@ const Password_field = ({ placeholder, fontfamily, top, }) => {
           }
         }}
       >
-        <Icon name={eyechange} size={20} color={"#807A7A"} />
+        <Icon name={eyechange} size={20} color={isalert == true ? "#F2583E" : default_icon_color} />
       </Pressable>
     </View>
   );
