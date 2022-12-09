@@ -50,8 +50,9 @@ const Reset_password1 = ({ navigation }) => {
   NavigationBar.setVisibilityAsync("hidden");
   NavigationBar.setBehaviorAsync("overlay-swipe");
   const colorScheme = useColorScheme();
-  const themeTextStyle = colorScheme === 'light' ? styles.lightThemeText : styles.darkThemeText;
   const themeContainerStyle = colorScheme === 'light' ? styles.lightContainer : styles.darkContainer;
+  const default_text_color = colorScheme === 'light' ? "black" : "#FFFFFF";
+
   NavigationBar.setBackgroundColorAsync(themeContainerStyle.backgroundColor);
   const route = useRoute().name;
   let [fontsLoaded, error] = useFonts({
@@ -75,8 +76,8 @@ const Reset_password1 = ({ navigation }) => {
           height: dheight
         }} />
         <Background_theme route_name={route} />
-        <Back_arrow_button route_name={route} color={themeTextStyle.color} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
-        <Left_heading value={"Reset Password"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
+        <Back_arrow_button route_name={route} color={default_text_color} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
+        <Left_heading value={"Reset Password"} text_color={default_text_color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
         <View style={{
           position: "absolute",
           flex: 1,
@@ -90,11 +91,11 @@ const Reset_password1 = ({ navigation }) => {
             paddingRight: "25%",
             fontFamily: Poppins_Light,
             fontSize: 14,
-            color: themeTextStyle.color,
+            color: default_text_color,
             opacity: 0.8,
           }}>Please enter your email address to request a password reset</Text>
         </View>
-        <User_and_mail_field placeholder={"abc@email.com"} icon={"mail"} backgroundColor={colorScheme === 'light' ? null : "#393948"} fontfamily={Poppins_Medium} top={.27 * dheight} />
+        <User_and_mail_field placeholder={"abc@email.com"} icon={"mail"} fontfamily={Poppins_Medium} top={.27 * dheight} />
         <Theme_button value={"SEND"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={.38 * dheight} />
       </ScrollView >
     </SafeAreaView >

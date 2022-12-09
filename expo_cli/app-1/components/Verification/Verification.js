@@ -59,8 +59,7 @@ const Verification = ({ navigation }) => {
   NavigationBar.setBehaviorAsync("overlay-swipe");
 
   const colorScheme = useColorScheme();
-  const themeTextStyle = colorScheme === 'light' ? styles.lightThemeText : styles.darkThemeText;
-  const themeContainerStyle = colorScheme === 'light' ? styles.lightContainer : styles.darkContainer;
+  const themeContainerStyle = colorScheme === 'light' ? styles.lightContainer : styles.darkContainer; const default_text_color = colorScheme === 'light' ? "black" : "#FFFFFF";
   const input_background_color = colorScheme === 'light' ? null : "#393948";
   const input_border_color = colorScheme === 'light' ? "#E4DFDF" : "#3C3E56";
   NavigationBar.setBackgroundColorAsync(themeContainerStyle.backgroundColor);
@@ -93,8 +92,8 @@ const Verification = ({ navigation }) => {
           height: dheight
         }} />
         <Background_theme route_name={route} />
-        <Back_arrow_button route_name={route} color={themeTextStyle.color} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
-        <Left_heading value={"Verification"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
+        <Back_arrow_button route_name={route} color={default_text_color} navigation={navigation} width={.05 * dwidth} top={.08 * dheight} />
+        <Left_heading value={"Verification"} text_color={default_text_color} fontfamily={Poppins_Medium} top={.12 * dheight} left={.08 * dwidth} />
         <View style={{
           position: "absolute",
           flex: 1,
@@ -109,13 +108,13 @@ const Verification = ({ navigation }) => {
             fontFamily: Poppins_Light,
             fontSize: 14,
 
-            color: themeTextStyle.color,
+            color: default_text_color,
             opacity: 0.8,
           }}>We have send you the verification code on
             <Text style={{
               fontFamily: Poppins_Medium,
               fontSize: 14,
-              color: themeTextStyle.color,
+              color: default_text_color,
               opacity: 1,
             }}>{" "}{"khalidfarrukh951@gmail.com"}</Text>
           </Text>
@@ -136,7 +135,7 @@ const Verification = ({ navigation }) => {
           renderCell={({ index, symbol, isFocused }) => (
             <Text
               key={index}
-              style={[styles.cell, themeTextStyle, { borderColor: input_border_color }, isFocused && styles.focusCell
+              style={[styles.cell, { color: default_text_color, borderColor: input_border_color }, isFocused && styles.focusCell
               ]}
               onLayout={getCellOnLayoutHandler(index)}>
               {symbol || (isFocused ? <Cursor /> : null)}
@@ -144,7 +143,7 @@ const Verification = ({ navigation }) => {
           )}
         />
         <Theme_button value={"CONTINUE"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={.38 * dheight} />
-        <Counter text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.5 * dheight} />
+        <Counter text_color={default_text_color} fontfamily={Poppins_Medium} top={.5 * dheight} />
       </ScrollView>
     </SafeAreaView >
   );

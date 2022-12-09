@@ -33,7 +33,6 @@ import Background_theme from "../common/Background_theme/Background_theme";
 import Back_arrow_button from "../common/Back_arrow_button";
 import Left_heading from "../common/Left_heading";
 import User_and_mail_field from "../common/User_and_mail_field";
-import Mail_field from "../common/Mail_field";
 import Password_field from "../common/Password_field";
 import Theme_button from "../common/Theme_button";
 import OR from "../common/OR";

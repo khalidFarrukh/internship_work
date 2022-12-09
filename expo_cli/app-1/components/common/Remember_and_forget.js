@@ -11,6 +11,7 @@ import {
   Switch,
   Pressable,
   Dimensions,
+  useColorScheme,
 } from "react-native";
 import { useRoute } from '@react-navigation/native';
 import S_n_button from "./../common//S_n_button";
