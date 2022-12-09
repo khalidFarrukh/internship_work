@@ -57,10 +57,14 @@ const Verification = ({ navigation }) => {
   const [isFocused, onIsFocused] = useState(false);
   NavigationBar.setVisibilityAsync("hidden");
   NavigationBar.setBehaviorAsync("overlay-swipe");
+
   const colorScheme = useColorScheme();
   const themeTextStyle = colorScheme === 'light' ? styles.lightThemeText : styles.darkThemeText;
   const themeContainerStyle = colorScheme === 'light' ? styles.lightContainer : styles.darkContainer;
+  const input_background_color = colorScheme === 'light' ? null : "#393948";
+  const input_border_color = colorScheme === 'light' ? "#E4DFDF" : "#3C3E56";
   NavigationBar.setBackgroundColorAsync(themeContainerStyle.backgroundColor);
+
   const route = useRoute().name;
   const [value, setValue] = useState('');
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
@@ -104,6 +108,7 @@ const Verification = ({ navigation }) => {
             paddingRight: .25 * dwidth,
             fontFamily: Poppins_Light,
             fontSize: 14,
+
             color: themeTextStyle.color,
             opacity: 0.8,
           }}>We have send you the verification code on
@@ -115,11 +120,9 @@ const Verification = ({ navigation }) => {
             }}>{" "}{"khalidfarrukh951@gmail.com"}</Text>
           </Text>
         </View>
-        {/* <View style={{}}> */}
         <CodeField
           ref={ref}
           {...props}
-          // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
           value={value}
           onChangeText={setValue}
           cellCount={CELL_COUNT}
@@ -133,16 +136,15 @@ const Verification = ({ navigation }) => {
           renderCell={({ index, symbol, isFocused }) => (
             <Text
               key={index}
-              style={[styles.cell, themeTextStyle, isFocused && styles.focusCell
+              style={[styles.cell, themeTextStyle, { borderColor: input_border_color }, isFocused && styles.focusCell
               ]}
               onLayout={getCellOnLayoutHandler(index)}>
               {symbol || (isFocused ? <Cursor /> : null)}
             </Text>
           )}
         />
-        {/* </View> */}
         <Theme_button value={"CONTINUE"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={.38 * dheight} />
-        <Counter fontfamily={Poppins_Medium} top={.5 * dheight} />
+        <Counter text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.5 * dheight} />
       </ScrollView>
     </SafeAreaView >
   );
@@ -164,6 +166,7 @@ const styles = StyleSheet.create({
   },
   darkThemeText: {
     color: 'white',
+    backgroundColor: "#393948",
   },
   root: { flex: 1, padding: 20 },
   cell: {
@@ -174,7 +177,6 @@ const styles = StyleSheet.create({
     fontFamily: Poppins_Medium,
     borderWidth: 2,
     borderRadius: 15,
-    borderColor: '#DADADA',
     textAlign: 'center',
     top: 10,
   },

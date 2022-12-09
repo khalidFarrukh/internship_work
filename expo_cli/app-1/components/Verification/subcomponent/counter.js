@@ -43,7 +43,7 @@ const Counter = (props) => {
         <Text style={{
           fontFamily: props.fontfamily,
           fontSize: 14,
-          color: "black",
+          color: props.text_color,
           opacity: 1,
         }}>
           {"Re-send code in "}
@@ -51,7 +51,7 @@ const Counter = (props) => {
         <Text style={{
           fontFamily: props.fontfamily,
           fontSize: 14,
-          color: "blue",
+          color: "#5669FF",
           opacity: 1,
         }}>{time}</Text>
       </View>

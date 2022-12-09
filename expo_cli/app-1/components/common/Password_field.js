@@ -10,6 +10,7 @@ import {
   Button,
   Pressable,
   Dimensions,
+  useColorScheme,
 } from "react-native";
 import Icon from 'react-native-vector-icons/Feather';
 import Invalid from "./Invalid";
@@ -23,6 +24,9 @@ const Password_field = ({ placeholder, fontfamily, top, }) => {
   const [text, onChangeText] = useState("");
   const [eyechange, setEyechange] = useState("eye")
 
+  const colorScheme = useColorScheme();
+  const input_background_color = colorScheme === 'light' ? null : "#393948";
+  const input_border_color = colorScheme === 'light' ? "#E4DFDF" : "#3C3E56";
   return (
     <View style={{
       position: "absolute",
@@ -36,11 +40,12 @@ const Password_field = ({ placeholder, fontfamily, top, }) => {
         {
           display: isalert == true ? "flex" : "none"
         }
-      } fontfamily={fontfamily} left={-.05 * dwidth} />
+      } color={"#F2583E"} fontfamily={fontfamily} left={-.05 * dwidth} />
       <View style={{
         position: "absolute",
         borderWidth: 1,
-        borderColor: isFocused == true ? "#5669FF" : isalert == true ? "red" : "#E4DFDF",
+        backgroundColor: input_background_color,
+        borderColor: isFocused == true ? "#5669FF" : isalert == true ? "#F2583E" : input_border_color,
         borderRadius: 7,
         width: "100%",
         height: "130%",
@@ -49,7 +54,7 @@ const Password_field = ({ placeholder, fontfamily, top, }) => {
         paddingLeft: "4%",
         paddingRight: "4%",
       }}>
-        <Icon name="lock" size={20} color={isFocused == true ? "#5669FF" : isalert == true ? "red" : "#807A7A"} />
+        <Icon name="lock" size={20} color={isFocused == true ? "#5669FF" : isalert == true ? "#F2583E" : "#807A7A"} />
       </Text>
       <TextInput
         style={{
@@ -59,7 +64,7 @@ const Password_field = ({ placeholder, fontfamily, top, }) => {
         }}
         cursorColor={"#5669FF"}
         placeholder={placeholder}
-        placeholderTextColor={isalert == true ? "red" : "#747688"}
+        placeholderTextColor={isalert == true ? "#F2583E" : "#747688"}
         onChangeText={onChangeText}
         secureTextEntry={eyechange == "eye"}
         onFocus={() => {
@@ -88,7 +93,7 @@ const Password_field = ({ placeholder, fontfamily, top, }) => {
           }
         }}
       >
-        <Icon name={eyechange} size={20} color="#807A7A" />
+        <Icon name={eyechange} size={20} color={"#807A7A"} />
       </Pressable>
     </View>
   );

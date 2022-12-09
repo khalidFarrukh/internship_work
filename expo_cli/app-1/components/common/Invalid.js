@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   Text,
 } from "react-native";
-const Invalid = ({ DON, fontfamily, top, left }) => {
+const Invalid = ({ DON, color, fontfamily, top, left }) => {
   return (
     <Text style={[{
       position: "absolute",
@@ -10,7 +10,7 @@ const Invalid = ({ DON, fontfamily, top, left }) => {
       left: left,
       fontFamily: fontfamily,
       fontSize: 24,
-      color: "red",
+      color: color,
     }, DON]}>
       !
     </Text>

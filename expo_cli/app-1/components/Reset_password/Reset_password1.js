@@ -94,7 +94,7 @@ const Reset_password1 = ({ navigation }) => {
             opacity: 0.8,
           }}>Please enter your email address to request a password reset</Text>
         </View>
-        <User_and_mail_field placeholder={"abc@email.com"} icon={"mail"} fontfamily={Poppins_Medium} top={.27 * dheight} />
+        <User_and_mail_field placeholder={"abc@email.com"} icon={"mail"} backgroundColor={colorScheme === 'light' ? null : "#393948"} fontfamily={Poppins_Medium} top={.27 * dheight} />
         <Theme_button value={"SEND"} route_name={route} navigation={navigation} fontfamily={Poppins_Medium} top={.38 * dheight} />
       </ScrollView >
     </SafeAreaView >

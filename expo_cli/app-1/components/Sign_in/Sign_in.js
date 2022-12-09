@@ -89,8 +89,8 @@ const Sign_in = ({ navigation }) => {
           fontfamily={Poppins_Medium}
         />
         <Left_heading value={"Sign in"} text_color={themeTextStyle.color} fontfamily={Poppins_Medium} top={.25 * dheight} left={.08 * dwidth} />
-        <User_and_mail_field placeholder={"Your username"} icon={"user"} fontfamily={Poppins_Medium} top={.32 * dheight} />
-        <Password_field placeholder={"Your password"} fontfamily={Poppins_Medium} top={.40 * dheight} />
+        <User_and_mail_field placeholder={"Your username"} icon={"user"} backgroundColor={colorScheme === 'light' ? null : "#393948"} fontfamily={Poppins_Medium} top={.32 * dheight} />
+        <Password_field placeholder={"Your password"} backgroundColor={colorScheme === 'light' ? null : "#393948"} fontfamily={Poppins_Medium} top={.40 * dheight} />
         <Remember_and_forget navigation={navigation} text_color={themeTextStyle.color} fontfamily={Poppins_Light} top={.46 * dheight} />
         <Theme_button value={"SIGN IN"} fontfamily={Poppins_Medium} top={.55 * dheight} />
         <OR fontfamily={Poppins_Medium} navigation={navigation} />
