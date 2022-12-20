@@ -21,13 +21,15 @@ import {
   Pressable,
   View,
   Button,
+  FlatList,
   ScrollView,
+
   Dimensions,
   useColorScheme,
 } from "react-native";
 import { useRoute } from '@react-navigation/native';
 import S_n_button from "./../common//S_n_button";
-import Svg, { Circle, Path, G } from 'react-native-svg';
+import Svg, { Rect, Line, Circle, Path, G } from 'react-native-svg';
 
 const Poppins_Thin = "Poppins_100Thin";
 const Poppins_ExtraLight = "Poppins_200ExtraLight";
@@ -63,8 +65,8 @@ const Home = (props) => {
   }
 
   return (
-    <SafeAreaView style={[{ flex: 1 }, themeContainerStyle]}>
-      <ScrollView contentContainerStyle={[styles.container, themeContainerStyle]}>
+    <SafeAreaView style={[styles.container, { flex: 1 }, themeContainerStyle]}>
+      <ScrollView contentContainerStyle={[themeContainerStyle]}>
         <StatusBar style={"light"} />
         <View style={{
           width: dwidth,
@@ -72,19 +74,16 @@ const Home = (props) => {
         }} />
         <View style={{
           position: "absolute",
-          backgroundColor: "#5669FF",
+          backgroundColor: "#4A43EC",
           borderBottomLeftRadius: 40,
           borderBottomRightRadius: 40,
           width: dwidth,
           height: .25 * dheight,
-          resizeMode: "contain",
         }} />
         <View style={{
           position: "absolute",
-          // height: .04 * dheight,
           width: dwidth,
-          top: .07 * dheight,
-          // backgroundColor: "red",
+          top: .05 * dheight,
           flex: 1,
           flexDirection: "row",
           alignItems: "center",
@@ -167,9 +166,144 @@ const Home = (props) => {
                   </View>
                   : null
               }
-
             </View>
           </View>
+        </View>
+        <View style={{
+          position: "absolute",
+          width: dwidth,
+          height: .12 * dwidth,
+          top: .12 * dheight,
+          justifyContent: "center",
+        }}>
+          <View style={{
+            position: "absolute",
+            width: .52 * dwidth,
+            height: .12 * dwidth,
+            left: .03 * dwidth,
+            justifyContent: "center",
+          }}>
+            <View style={{
+              position: "absolute",
+              width: "100%",
+              height: "70%",
+              left: "4%",
+            }}>
+              <Svg width="70%" height="100%" viewBox="0 0 114 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <Path d="M12 21C16.4183 21 20 17.4183 20 13C20 8.58172 16.4183 5 12 5C7.58172 5 4 8.58172 4 13C4 17.4183 7.58172 21 12 21Z" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <Path opacity="0.4" d="M22 23L17.65 18.65" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <Line opacity="0.4" x1="35.5" y1="4.5" x2="35.5" y2="23.5" stroke="#FFFFFF" strokeLinecap="round" />
+              </Svg>
+            </View>
+            <View style={{
+              position: "absolute",
+              width: "60%",
+              height: "60%",
+              justifyContent: "center",
+              left: "35%",
+            }}>
+              <Text style={{
+                fontFamily: Poppins_Regular,
+                fontSize: 20,
+                color: "#FFFFFF",
+                opacity: 0.4,
+              }}>
+                Search...
+              </Text>
+            </View>
+          </View>
+          <View style={{
+            position: "absolute",
+            width: .23 * dwidth,
+            height: .13 * dwidth,
+            right: .04 * dwidth,
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
+            <Svg width="77" height="34" viewBox="0 0 77 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <Rect opacity="0.1" x="1" y="1" width="75" height="32.1429" rx="16.0714" fill="#FFFFFF" />
+              <Path opacity="0.4" d="M17.1623 7.28943C11.8416 7.28943 7.51263 11.6183 7.51263 16.9391C7.51263 22.2599 11.8416 26.5889 17.1623 26.5889C22.4831 26.5889 26.8121 22.2599 26.8121 16.9391C26.8121 11.6183 22.4831 7.28943 17.1623 7.28943ZM18.6469 21.3929H15.6778C15.4809 21.3929 15.2921 21.3146 15.1529 21.1754C15.0137 21.0362 14.9355 20.8474 14.9355 20.6506C14.9355 20.4537 15.0137 20.2649 15.1529 20.1257C15.2921 19.9865 15.4809 19.9083 15.6778 19.9083H18.6469C18.8438 19.9083 19.0326 19.9865 19.1718 20.1257C19.311 20.2649 19.3892 20.4537 19.3892 20.6506C19.3892 20.8474 19.311 21.0362 19.1718 21.1754C19.0326 21.3146 18.8438 21.3929 18.6469 21.3929ZM20.8738 18.4237H13.4509C13.2541 18.4237 13.0652 18.3455 12.926 18.2063C12.7868 18.0671 12.7086 17.8783 12.7086 17.6814C12.7086 17.4846 12.7868 17.2958 12.926 17.1565C13.0652 17.0173 13.2541 16.9391 13.4509 16.9391H20.8738C21.0706 16.9391 21.2594 17.0173 21.3986 17.1565C21.5379 17.2958 21.6161 17.4846 21.6161 17.6814C21.6161 17.8783 21.5379 18.0671 21.3986 18.2063C21.2594 18.3455 21.0706 18.4237 20.8738 18.4237ZM22.3583 15.4546H11.9663C11.7695 15.4546 11.5807 15.3764 11.4415 15.2372C11.3023 15.098 11.2241 14.9091 11.2241 14.7123C11.2241 14.5154 11.3023 14.3266 11.4415 14.1874C11.5807 14.0482 11.7695 13.97 11.9663 13.97H22.3583C22.5552 13.97 22.744 14.0482 22.8832 14.1874C23.0224 14.3266 23.1006 14.5154 23.1006 14.7123C23.1006 14.9091 23.0224 15.098 22.8832 15.2372C22.744 15.3764 22.5552 15.4546 22.3583 15.4546Z" fill="#FFFFFF" />
+            </Svg>
+          </View>
+        </View>
+        <ScrollView
+          horizontal
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          style={{
+            position: "absolute",
+            top: .2 * dheight,
+            height: .09 * dheight,
+          }}
+          contentContainerStyle={{
+            alignItems: "center",
+          }}>
+          <View style={{ width: .05 * dwidth }} />
+          <View style={[styles.label_button, { backgroundColor: '#F0635A', }]} />
+          <View style={{ width: .05 * dwidth }} />
+          <View style={[styles.label_button, { backgroundColor: '#F59762', }]} />
+          <View style={{ width: .05 * dwidth }} />
+          <View style={[styles.label_button, { backgroundColor: '#29D697', }]} />
+          <View style={{ width: .05 * dwidth }} />
+          <View style={[styles.label_button, { backgroundColor: '#46CDFB', }]} />
+          <View style={{ width: .05 * dwidth }} />
+        </ScrollView>
+        <Text style={{
+          position: "absolute",
+          left: .08 * dwidth,
+          top: .3 * dheight,
+          fontFamily: Poppins_Medium,
+          fontSize: 18,
+        }}>
+          Upcoming Events
+        </Text>
+        <ScrollView
+          horizontal
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          style={{
+            position: "absolute",
+            // backgroundColor: "gray",
+            top: .35 * dheight,
+            height: .25 * dheight,
+          }}
+        >
+          <View style={{ width: .025 * dwidth }} />
+          <View style={[styles.content_thumb_back,]} >
+            <View style={[styles.content_thumb,]} />
+            <Text>
+              Template
+            </Text>
+          </View>
+          <View style={{ width: .05 * dwidth }} />
+          <View style={[styles.content_thumb_back,]}>
+            <View style={[styles.content_thumb,]} />
+          </View>
+          <View style={{ width: .05 * dwidth }} />
+          <View style={[styles.content_thumb_back,]} >
+            <View style={[styles.content_thumb,]} />
+          </View>
+          <View style={{ width: .05 * dwidth }} />
+          <View style={[styles.content_thumb_back,]} >
+            <View style={[styles.content_thumb,]} />
+          </View>
+          <View style={{ width: .025 * dwidth }} />
+        </ScrollView>
+        <View style={{
+          position: "absolute",
+          top: .73 * dheight,
+          width: dwidth,
+          alignItems: "center",
+        }}>
+
+          <View style={{
+            backgroundColor: "skyblue",
+            borderRadius: 20,
+            width: .85 * dwidth,
+            height: .3 * dwidth,
+          }}>
+          </View>
+
         </View>
       </ScrollView>
     </SafeAreaView >
@@ -179,6 +313,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+  },
+  label_button: {
+    width: .25 * dwidth,
+    height: .1 * dwidth,
+    borderRadius: 20,
+    elevation: 10,
+    shadowColor: '#5669FF',
+  },
+  content_thumb_back: {
+    backgroundColor: "#FFFFFF",
+    width: .4 * dwidth,
+    height: .5 * dwidth,
+    borderRadius: 20,
+    elevation: 10,
+    shadowColor: 'gray',
+    alignItems: "center",
+  },
+  content_thumb: {
+    top: "4%",
+    width: "90%",
+    height: "50%",
+    backgroundColor: "lightgray",
+    borderRadius: 15,
   },
   phone_image: {
     position: "absolute",
