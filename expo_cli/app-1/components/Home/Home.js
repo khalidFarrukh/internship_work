@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from 'expo-navigation-bar';
-// import fetch from 'node-fetch';
 import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
