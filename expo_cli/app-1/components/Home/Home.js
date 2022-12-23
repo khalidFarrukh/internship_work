@@ -39,17 +39,27 @@ const Home = (props) => {
   NavigationBar.setBackgroundColorAsync("red");
   // const route = useRoute().name;
   useEffect(() => {
-    fetch('https://contests7.p.rapidapi.com/contests')
+    const url = 'https://contests7.p.rapidapi.com/contests';
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '7bc1b70be4msh5512aa25b36300fp1b7131jsna98e0103908e',
+        'X-RapidAPI-Host': 'contests7.p.rapidapi.com'
+      }
+    };
+    fetch(url, options)
       .then((response) => response.json())
       .then((json) => setData(json))
-      .catch((error) => console.error(error))
+      .catch((error) => console.error('error:' + error))
       .finally(() => setLoading(false));
+    console.log(data);
   }, []);
   return (
     <SafeAreaView style={[styles.container, { flex: 1 }, themeContainerStyle]}>
       {
         isLoading ? (
-          <View style={{ justifyContent: "center" }}>
+          <View style={{ height: "100%", width: "100%", justifyContent: "center" }}>
             <Text>
               loading...
             </Text>
